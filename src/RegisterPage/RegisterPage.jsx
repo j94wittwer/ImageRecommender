@@ -104,23 +104,23 @@ class RegisterPage extends React.Component {
                         }
                     </div>
                     <div className={'form-group' + (submitted && !user.passwordInsta ? ' has-error' : '')}>
-                        <label htmlFor="usernameInsta">Instagram Password</label>
-                        <input type="text" className="form-control" name="usernameInsta" value={user.passwordInsta} onChange={this.handleChange} />
+                        <label htmlFor="passwordInsta">Instagram Password</label>
+                        <input type="text" className="form-control" name="passwordInsta" value={user.passwordInsta} onChange={this.handleChange} />
                         {submitted && !user.passwordInsta &&
                             <div className="help-block">Your Instagram Password is required</div>
                         }
                     </div>
                     <p>Link your Facebook Account</p>
                     <div className={'form-group' + (submitted && !user.usernameFacebook ? ' has-error' : '')}>
-                        <label htmlFor="usernameInsta">Facebook Username</label>
-                        <input type="text" className="form-control" name="usernameInsta" value={user.usernameFacebook} onChange={this.handleChange} />
+                        <label htmlFor="usernameFacebook">Facebook Username</label>
+                        <input type="text" className="form-control" name="usernameFacebook" value={user.usernameFacebook} onChange={this.handleChange} />
                         {submitted && !user.usernameFacebook &&
                             <div className="help-block">Your Facebook Username is required</div>
                         }
                     </div>
                     <div className={'form-group' + (submitted && !user.passwordFacebook ? ' has-error' : '')}>
-                        <label htmlFor="usernameInsta">Facebook Password</label>
-                        <input type="text" className="form-control" name="usernameInsta" value={user.passwordFacebook} onChange={this.handleChange} />
+                        <label htmlFor="passwordFacebook">Facebook Password</label>
+                        <input type="text" className="form-control" name="passwordFacebook" value={user.passwordFacebook} onChange={this.handleChange} />
                         {submitted && !user.passwordFacebook &&
                             <div className="help-block">Your Facebook Password is required</div>
                         }
@@ -128,15 +128,15 @@ class RegisterPage extends React.Component {
 
                     <p>Link your Pinterest Account</p>
                     <div className={'form-group' + (submitted && !user.usernamePinterest ? ' has-error' : '')}>
-                        <label htmlFor="usernameInsta">Pinterest Username</label>
-                        <input type="text" className="form-control" name="usernameInsta" value={user.usernamePinterest} onChange={this.handleChange} />
+                        <label htmlFor="usernamePinterest">Pinterest Username</label>
+                        <input type="text" className="form-control" name="usernamePinterest" value={user.usernamePinterest} onChange={this.handleChange} />
                         {submitted && !user.usernamePinterest &&
                             <div className="help-block">Your Pinterest Username is required</div>
                         }
                     </div>
                     <div className={'form-group' + (submitted && !user.passwordPinterest ? ' has-error' : '')}>
-                        <label htmlFor="usernameInsta">Pinterest Password</label>
-                        <input type="text" className="form-control" name="usernameInsta" value={user.passwordPinterest} onChange={this.handleChange} />
+                        <label htmlFor="passwordPinterest">Pinterest Password</label>
+                        <input type="text" className="form-control" name="passwordPinterest" value={user.passwordPinterest} onChange={this.handleChange} />
                         {submitted && !user.passwordPinterest &&
                             <div className="help-block">Your Pinterest Password is required</div>
                         }
