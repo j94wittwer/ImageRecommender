@@ -6,7 +6,7 @@ import React, { useState } from "react";
 
 
 const Rating = props => {
-    const { name, song, youtubeId } = props.band;
+    const { name, source, youtubeId } = props.band;
     const [isLiked, updateLike] = useState(false);
   
     const handleLike = () => {
@@ -47,10 +47,12 @@ const Rating = props => {
      {/*        <FontAwesomeIcon icon={faThumbsDown} style={{ paddingLeft: 5 }} />   */}
           </button>
         </div>
-     {/*    <p>You {isLiked ? "liked" : "disliked"} </p>   */}
+     {/*    <p>You {isLiked ? "liked" : "disliked"} </p>  
+      */}
          <p>{isLiked ? "liked" : ""} </p>
         <h3>
-        {/*  {song} by {name} */}
+        <p> source: {source}  </p>
+     {/*   <p> source:  {song} by {name}  */}
         </h3>
         <hr />
       </div>

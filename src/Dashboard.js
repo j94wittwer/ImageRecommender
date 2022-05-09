@@ -29,7 +29,7 @@ const [likedBands, updateLikedBands] = React.useState([]);
     }
   };
 
- 
+
 
   useEffect(() => {
     if (loading) return;
@@ -57,7 +57,7 @@ const [likedBands, updateLikedBands] = React.useState([]);
         </button>
      <h1>Hi {name}! </h1>
     <h3>Based on your social media activity, we found the following images that you may like</h3>
-   
+   {}
     {images.map(image => (
         <Rating
           key={image.youtubeId}

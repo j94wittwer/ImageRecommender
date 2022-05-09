@@ -39,6 +39,7 @@ function Register() {
     
   };
 
+ 
 
   const [instaname, setInstaname] = useState("");
   const [instapwd, setInstapwd] = useState("");
