@@ -68,12 +68,21 @@ const [likedBands, updateLikedBands] = React.useState([]);
         />
       ))}
 
-<h2>Liked images</h2>
+
+      
+
+   <h2>Liked images</h2>
       <ul>
         {likedBands.map(name => (
           <li key={name}>{name}</li>
         ))}
-      </ul>
+        </ul>   
+
+<button className="dashboard__btn" >
+          Show me further images based on my likes 
+
+        </button>
+       
     </div>
   );
 }

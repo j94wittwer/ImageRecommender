@@ -47,9 +47,10 @@ const Rating = props => {
      {/*        <FontAwesomeIcon icon={faThumbsDown} style={{ paddingLeft: 5 }} />   */}
           </button>
         </div>
-        <p>You {isLiked ? "liked" : "disliked"} </p>
+     {/*    <p>You {isLiked ? "liked" : "disliked"} </p>   */}
+         <p>{isLiked ? "liked" : ""} </p>
         <h3>
-          {song} by {name}
+        {/*  {song} by {name} */}
         </h3>
         <hr />
       </div>
