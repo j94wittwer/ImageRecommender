@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 
 
+
 const Rating = props => {
     const { name, song, youtubeId } = props.band;
     const [isLiked, updateLike] = useState(false);
@@ -20,14 +21,18 @@ const Rating = props => {
           props.updateLikedBands(currentLikedBands.filter(band => band !== name));
       }
     };
-  
+    
     return (
       <div>
-        <iframe
+        <img
           title={name}
-          width="420"
-          height="315"
-          src={`https://www.youtube.com/embed/${youtubeId}`}
+         width="420"
+         height="315"
+             
+          src={`Images/${youtubeId}-unsplash.jpg`}
+        //src={`https://i.imgur.com/DhZUThn.jpg`}
+        
+       
         />
         <div
           style={{
