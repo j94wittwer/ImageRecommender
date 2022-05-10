@@ -3,7 +3,7 @@ from os import listdir
 from os.path import join, isfile
 
 
-def extract_img_names(path="./imgs_for_AI_Law"):
+def extract_img_names(path="../../public/Images"):
     return [f for f in listdir(path) if isfile(join(path, f))]
     
 with open('images.json', 'w') as file:
