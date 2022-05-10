@@ -8,6 +8,9 @@ import Rating from "./Rating";
 import {auth, db, logout} from "./firebase";
 import {query, collection, getDocs, where} from "firebase/firestore";
 import arrayShuffle from "array-shuffle";
+import axios from "axios";
+import async from "async";
+
 
 function Dashboard() {
 
@@ -17,8 +20,7 @@ function Dashboard() {
     const [name, setName] = useState("");
     const initialImages = arrayShuffle(images).slice(0, 5);
     const [currentImages, setCurrentImages] = useState({images: initialImages})
-
-    console.log(currentImages.images.map(i => console.log(i.name)))
+    let [counter, setCounter] = useState(0);
 
     const navigate = useNavigate();
 
@@ -33,6 +35,26 @@ function Dashboard() {
             console.error(err);
             alert("An error occured while fetching user data");
         }
+    };
+
+    const handleLike = async (name) => {
+        const data = {
+            "img": name
+        }
+        let similar_imgs = [];
+        axios.post(`http://127.0.0.1:5000/similar`, data)
+            .then(response => {
+                similar_imgs = response.data.similar_imgs
+                for (let i = 0; i < images.length; i++) {
+                    if (similar_imgs.includes(images[i].name)) {
+                        let current_names = currentImages.images.map(i => i.name)
+                        if (!current_names.includes(images[i].name)) {
+                            currentImages.images.push(images[i]);
+                        }
+                    }
+                }
+            })
+            .catch(e => console.log(e))
     };
 
 
@@ -65,10 +87,10 @@ function Dashboard() {
             {currentImages.images.map(image => (
                 <Rating
                     key={image.name}
-                    band={image}
+                    imageInfo={image}
                     updateLikedBands={updateLikedBands}
                     likedBands={likedBands}
-
+                    handleLike={handleLike}
                 />
             ))}
 
