@@ -38,7 +38,7 @@ const Rating = props => {
                 width="420"
                 height="315"
 
-                src={`Images/${youtubeId}-unsplash.jpg`}
+                src={`Images/${name}`}
                 //src={`https://i.imgur.com/DhZUThn.jpg`}
 
 
