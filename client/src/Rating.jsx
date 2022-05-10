@@ -1,24 +1,13 @@
 import React, {useState} from "react";
-import axios from "axios";
 
 const Rating = props => {
-    const {name, source, youtubeId} = props.band;
+    const {name, source} = props.imageInfo;
     const [isLiked, updateLike] = useState(false);
 
-    const handleLike = () => {
+    const handleLike = async () => {
         let currentLikedBands = props.likedBands;
-        console.log(`${props.band.name}.jpg`);
-        const data = {
-            "img": props.band.name
-        }
-        // similar imgs are retrieved from server
-        let similar_imgs = []
-        axios.post(`http://127.0.0.1:5000/similar`, data)
-            .then(response => {
-                similar_imgs = response.data.similar_imgs
-                console.log(similar_imgs)
-            })
-            .catch(e => console.log(e));
+
+        await props.handleLike(name);
 
         if (!isLiked) {
             updateLike(true);
@@ -36,9 +25,9 @@ const Rating = props => {
             <img
                 title={name}
                 width="420"
-                height="315"
+                //height="315"
 
-                src={`Images/${youtubeId}-unsplash.jpg`}
+                src={`Images/${name}`}
                 //src={`https://i.imgur.com/DhZUThn.jpg`}
 
 
