@@ -41,6 +41,7 @@ const Rating = props => {
                 title={name}
                 width="420"
                 shadowHover
+                
                // height="315"
                 
                 src={`Images/${name}`}
@@ -51,7 +52,7 @@ const Rating = props => {
             <div
                 style={{
                     paddingBottom: 5,
-                    paddingTop: 50
+                    paddingTop: 70
                 }}
             >
                 <button onClick={handleLike} disabled={isLiked} > Like

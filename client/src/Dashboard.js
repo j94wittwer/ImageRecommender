@@ -94,8 +94,9 @@ function Dashboard() {
                 Logout
             </button>
             <h1>Hi {name}! </h1>
-            <h3>Based on your social media activity, we found the following images that you may like</h3>
             
+            <h3>Based on your social media activity, we found the following images that you may like</h3>
+           
             {currentImages.images.map(image => (
                 <Rating
                     key={image.name}
@@ -106,14 +107,14 @@ function Dashboard() {
                 />
             ))}
 
-
+  {/* 
             <h2>Liked images</h2>
             <ul>
                 {likedBands.map(name => (
                     <li key={name}>{name}</li>
                 ))}
             </ul>
-
+ */} 
             
         
          {/*   <button className="dashboard__btn">
