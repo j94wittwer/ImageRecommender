@@ -12,6 +12,8 @@
   text-align: center;
   background-color: #dcdcdc;
   padding: 30px;
+  overflow-y: scroll;
+  height: 70%;
 }
 
 .register__textBox {

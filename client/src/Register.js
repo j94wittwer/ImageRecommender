@@ -45,11 +45,27 @@ function Register() {
   const [instapwd, setInstapwd] = useState("");
   const [visibleInsta, setVisibleInsta] = useState(false);
   const showElementInsta = () => setVisibleInsta(true);
+  const hideElementInsta = () => setVisibleInsta(false);
 
   const [Printerestname, setPrinterestname] = useState("");
   const [Printerestpwd, setPrinterestpwd] = useState("");
   const [visiblePrinterest, setVisiblePrinterest] = useState(false);
   const showElementPrinterest = () => setVisiblePrinterest(true);
+  const hideElementPrinterest = () => setVisiblePrinterest(false);
+
+
+  const [Facebookname, setFacebookname] = useState("");
+  const [Facebookpwd, setFacebookpwd] = useState("");
+  const [visibleFacebook, setVisibleFacebook] = useState(false);
+  const showElementFacebook = () => setVisibleFacebook(true);
+  const hideElementFacebook = () => setVisibleFacebook(false);
+
+  const [Twittername, setTwittername] = useState("");
+  const [Twitterpwd, setTwitterpwd] = useState("");
+  const [visibleTwitter, setVisibleTwitter] = useState(false);
+  const showElementTwitter = () => setVisibleTwitter(true);
+  const hideElementTwitter = () => setVisibleTwitter(false);
+
 
 
   useEffect(() => {
@@ -122,12 +138,49 @@ function Register() {
           placeholder="Printerest Password"
         /> }
 
+{ visibleFacebook &&   <text>Facebook:</text> }
+        { visibleFacebook &&
+         <input
+          type="text"
+          className="register__textBox"
+          value={Facebookname}
+          onChange={(e) => setFacebookname(e.target.value)}
+          placeholder="Facebook Username"
+        /> }
+        { visibleFacebook &&
+         <input
+          type="password"
+          className="register__textBox"
+          value={Facebookpwd}
+          onChange={(e) => setFacebookpwd(e.target.value)}
+          placeholder="Facebook Password"
+        /> }
+
+
+{ visibleTwitter &&   <text>Twitter:</text> }
+        { visibleTwitter &&
+         <input
+          type="text"
+          className="register__textBox"
+          value={Twittername}
+          onChange={(e) => setTwittername(e.target.value)}
+          placeholder="Twitter Username"
+        /> }
+        { visibleTwitter &&
+         <input
+          type="password"
+          className="register__textBox"
+          value={Twitterpwd}
+          onChange={(e) => setTwitterpwd(e.target.value)}
+          placeholder="Twitter Password"
+        /> }
+
 
         
         <div>
         <button 
           className="register__btn register__google"
-          onClick={showElementInsta}
+          onClick={visibleInsta? hideElementInsta : showElementInsta }
         > 
           Link Instagram Account
          </button>
@@ -136,13 +189,31 @@ function Register() {
          <div>
         <button 
           className="register__btn register__google"
-          onClick={showElementPrinterest}
+          onClick={visiblePrinterest? hideElementPrinterest : showElementPrinterest }
         > 
           Link Pinterest Account
          </button>
          </div>
 
-         
+         <div>
+        <button 
+          className="register__btn register__google"
+          onClick={visibleFacebook? hideElementFacebook : showElementFacebook }
+        > 
+          Link Facebook Account
+         </button>
+         </div>
+
+         <div>
+        <button 
+          className="register__btn register__google"
+          onClick={visibleTwitter? hideElementTwitter : showElementTwitter }
+        > 
+          Link Twitter Account
+         </button>
+         </div>
+
+
 
         <button className="register__btn" onClick={register}>
           Register
