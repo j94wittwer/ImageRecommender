@@ -26,11 +26,11 @@ const Rating = props => {
                 title={name}
                 width="420"
                 //height="315"
-
+                style={{
+                    borderRadius: "5%"
+                }}
                 src={`Images/${name}`}
                 //src={`https://i.imgur.com/DhZUThn.jpg`}
-
-
             />
             <div
                 style={{

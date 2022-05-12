@@ -57,7 +57,7 @@ def index():
 @cross_origin()
 def get_similar_images():
     if request.method == "POST":
-        file_name = request.json.get("img") + "-unsplash.jpg"
+        file_name = request.json.get("img")
 
         # Save query_img
         img = Image.open("./static/img/" + file_name)  # create PIL image from file_name
@@ -67,7 +67,7 @@ def get_similar_images():
         # Run search
         query = fe.extract(img)
         dists = np.linalg.norm(features - query, axis=1)  # L2 distances to the features
-        ids = np.argsort(dists)[1:5]  # Top n results
+        ids = np.argsort(dists)[1:3]  # Top n results
         scores = [(dists[id], img_paths[id]) for id in ids]
 
         file_names = get_file_names(scores)
