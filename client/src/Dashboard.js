@@ -15,7 +15,7 @@ import async from "async";
 function Dashboard() {
 
     const [likedBands, updateLikedBands] = React.useState([]);
-
+    const[placeholder, setPlaceholder] = useState(1);
     const [user, loading, error] = useAuthState(auth);
     const [name, setName] = useState("");
     const initialImages = arrayShuffle(images).slice(0, 5);
@@ -53,8 +53,20 @@ function Dashboard() {
                         }
                     }
                 }
+
+              {/*  setTimeout(function () {
+                    console.log("3 sec")
+                }, 7000);  */}
+        
+            setPlaceholder(placeholder + 1); 
+            
+
+
             })
             .catch(e => console.log(e))
+
+
+           
     };
 
 
@@ -82,8 +94,9 @@ function Dashboard() {
                 Logout
             </button>
             <h1>Hi {name}! </h1>
+            
             <h3>Based on your social media activity, we found the following images that you may like</h3>
-            {}
+           
             {currentImages.images.map(image => (
                 <Rating
                     key={image.name}
@@ -94,19 +107,21 @@ function Dashboard() {
                 />
             ))}
 
-
+  {/* 
             <h2>Liked images</h2>
             <ul>
                 {likedBands.map(name => (
                     <li key={name}>{name}</li>
                 ))}
             </ul>
-
-            <button className="dashboard__btn">
+ */} 
+            
+        
+         {/*   <button className="dashboard__btn">
                 Show me further images based on my likes
 
             </button>
-
+                            */} 
         </div>
     );
 }

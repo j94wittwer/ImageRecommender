@@ -1,9 +1,12 @@
 import React, {useState} from "react";
+import ImageShadow from 'react-image-shadow';
+import 'react-image-shadow/assets/index.css';
+import "./Images.css"
 
 const Rating = props => {
     const {name, source} = props.imageInfo;
     const [isLiked, updateLike] = useState(false);
-
+    const[placeholder, setPlaceholder] = useState("Dummy");
     const handleLike = async () => {
         let currentLikedBands = props.likedBands;
 
@@ -18,27 +21,41 @@ const Rating = props => {
             if (currentLikedBands.includes(name))
                 props.updateLikedBands(currentLikedBands.filter(band => band !== name));
         }
+
+    {/* setTimeout(function () {
+            console.log("3 sec")
+        }, 7000);
+
+    setPlaceholder("Dummy1");    */}
+
     };
 
     return (
-        <div>
-            <img
+
+
+        <div className="base-demo">
+
+            <ImageShadow
+
+
                 title={name}
                 width="420"
-                //height="315"
-                style={{
-                    borderRadius: "5%"
-                }}
+                shadowHover
+
+               // height="315"
+
                 src={`Images/${name}`}
                 //src={`https://i.imgur.com/DhZUThn.jpg`}
+
+
             />
             <div
                 style={{
-                    paddingBottom: 10,
-                    paddingTop: 10
+                    paddingBottom: 5,
+                    paddingTop: 70
                 }}
             >
-                <button onClick={handleLike} disabled={isLiked}> Like
+                <button onClick={handleLike} disabled={isLiked} > Like
                     {/*         <FontAwesomeIcon icon={faThumbsUp} style={{ paddingRight: 5 }} />   */}
                 </button>
                 <button onClick={handleLike} disabled={!isLiked}> Dislike
