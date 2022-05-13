@@ -8,13 +8,13 @@ import HomePage from "./HomePage";
 
 function App() {
   return (
-    <div className="app">
+    <div className="scrap">
       
       <Router>
         <Routes>
           <Route exact path="/homepage" element={<Login />} />
-          <Route exact path="/register" element={<Register />} />
           <Route exact path="/reset" element={<Reset />} />
+          <Route exact path="/register" element={<Register />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/" element={<HomePage />} />
         </Routes>

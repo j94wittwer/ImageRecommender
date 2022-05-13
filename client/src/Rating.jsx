@@ -8,18 +8,18 @@ const Rating = props => {
     const [isLiked, updateLike] = useState(false);
     const[placeholder, setPlaceholder] = useState("Dummy");
     const handleLike = async () => {
-        let currentLikedBands = props.likedBands;
+        let currentlikedImages = props.likedImages;
 
         await props.handleLike(name);
 
         if (!isLiked) {
             updateLike(true);
-            if (!currentLikedBands.includes(name))
-                props.updateLikedBands([...currentLikedBands, name]);
+            if (!currentlikedImages.includes(name))
+                props.updatelikedImages([...currentlikedImages, name]);
         } else {
             updateLike(false);
-            if (currentLikedBands.includes(name))
-                props.updateLikedBands(currentLikedBands.filter(band => band !== name));
+            if (currentlikedImages.includes(name))
+                props.updatelikedImages(currentlikedImages.filter(image => image !== name));
         }
 
     {/* setTimeout(function () {
@@ -38,8 +38,8 @@ const Rating = props => {
             <ImageShadow
 
 
-                title={name}
-                width="420"
+               
+                width="600"
                 shadowHover
 
                // height="315"
@@ -52,7 +52,7 @@ const Rating = props => {
             <div
                 style={{
                     paddingBottom: 5,
-                    paddingTop: 70
+                    paddingTop: 90
                 }}
             >
                 <button onClick={handleLike} disabled={isLiked} > Like
