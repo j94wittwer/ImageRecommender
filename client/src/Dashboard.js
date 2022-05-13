@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 import "./Dashboard.css";
 import "./styles.css";
 import images from "./images.json";
-import Rating from "./Rating";
+import Review from "./Rating";
 import {auth, db, logout} from "./firebase";
 import {query, collection, getDocs, where} from "firebase/firestore";
 import arrayShuffle from "array-shuffle";
@@ -14,7 +14,7 @@ import async from "async";
 
 function Dashboard() {
 
-    const [likedBands, updateLikedBands] = React.useState([]);
+    const [likedImages, updatelikedImages] = React.useState([]);
     const[placeholder, setPlaceholder] = useState(1);
     const [user, loading, error] = useAuthState(auth);
     const [name, setName] = useState("");
@@ -24,7 +24,7 @@ function Dashboard() {
 
     const navigate = useNavigate();
 
-    const fetchUserName = async () => {
+    const collectName = async () => {
         try {
             const q = query(collection(db, "users"), where("uid", "==", user?.uid));
             const doc = await getDocs(q);
@@ -33,7 +33,7 @@ function Dashboard() {
             setName(data.name);
         } catch (err) {
             console.error(err);
-            alert("An error occured while fetching user data");
+            alert("An error occured");
         }
     };
 
@@ -74,22 +74,13 @@ function Dashboard() {
         if (loading) return;
         if (!user) return navigate("/");
 
-        fetchUserName();
+        collectName();
     }, [user, loading]);
 
 
     return (
         <div className="App">
-            {/*   <div className="dashboard">
-      <div className="dashboard__container">
-        Logged in as
-        <div>{name}</div>
-        <div>{user?.email}</div>
-        <button className="dashboard__btn" onClick={logout}>
-          Logout
-        </button>
-      </div>
-  </div> */}
+            
             <button className="dashboard__btn" onClick={logout}>
                 Logout
             </button>
@@ -98,23 +89,24 @@ function Dashboard() {
             <h3>Based on your social media activity, we found the following images that you may like</h3>
            
             {currentImages.images.map(image => (
-                <Rating
-                    key={image.name}
+                <Review
+                    nameofImage={image.name}
                     imageInfo={image}
-                    updateLikedBands={updateLikedBands}
-                    likedBands={likedBands}
+                     likedImages={likedImages}
+                    updatelikedImages={updatelikedImages}
+                   
                     handleLike={handleLike}
                 />
             ))}
 
-  {/* 
+  
             <h2>Liked images</h2>
             <ul>
-                {likedBands.map(name => (
-                    <li key={name}>{name}</li>
+                {likedImages.map(name => (
+                    <li nameofImage={name}>{name}</li>
                 ))}
             </ul>
- */} 
+ 
             
         
          {/*   <button className="dashboard__btn">
